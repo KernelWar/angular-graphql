@@ -1,0 +1,39 @@
+.container {
+    height: 100%;
+    display: flex;    
+    mat-card {
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        margin: auto;
+        overflow: hidden;
+        padding: 0 !important;
+    }
+}
+.row, .row div{
+    padding: 0;
+    margin: 0;
+}
+
+
+#col-left {
+    background: linear-gradient(45deg, rgba(49,27,146,1) 0%, rgba(84,53,221,1) 100%);
+    display: flex;
+    justify-content: center;
+}
+
+#text-hello{    
+    padding-top: 40px;
+    padding-left: 40px;
+    h2,h3{
+        padding: 0;
+        margin: 0;
+    }
+    h3{
+        margin-top: -10px;
+    }
+}
+form{
+    #text-welcome{
+        text-align: center;
+    }
+    padding: 40px;
+}
