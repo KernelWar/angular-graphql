@@ -1,11 +1,13 @@
 <div class="main">
-    <app-header></app-header>    
+    <app-header (toogleEvent)="drawerToogle($event)"></app-header>    
     <mat-drawer-container>
-        <mat-drawer mode="side" opened class="side-nav">
+        <mat-drawer #drawer mode="side" opened class="side-nav">
             <app-sidebar></app-sidebar>
         </mat-drawer>
         <mat-drawer-content>
-            <router-outlet></router-outlet>            
+            <div class="container-fluid" style="height: 100%;">
+                <router-outlet></router-outlet> 
+            </div>           
         </mat-drawer-content>
     </mat-drawer-container>
 </div>

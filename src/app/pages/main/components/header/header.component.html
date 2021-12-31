@@ -1,13 +1,21 @@
 <mat-toolbar color="primary">
-    <button mat-icon-button>
+    <button mat-icon-button (click)="toggleActive()">
         <mat-icon>menu</mat-icon>
     </button>
-    <span>My App</span>
-    <span class="spacer"></span>
-    <button mat-icon-button>
-        <mat-icon>favorite</mat-icon>
+    <button mat-button  routerLink="/home">
+        <mat-icon>home</mat-icon>
+        Angular app
     </button>
-    <button mat-icon-button>
-        <mat-icon>share</mat-icon>
-    </button>
+    <span class="spacer"></span>    
+    <button mat-icon-button style="margin-right: 40px;" [matMenuTriggerFor]="menu">
+        nombre
+        <mat-icon>person</mat-icon>
+    </button>    
 </mat-toolbar>
+
+<mat-menu #menu="matMenu">
+    <button mat-menu-item>
+        <mat-icon>logout</mat-icon>
+        LogOut
+    </button>
+  </mat-menu>

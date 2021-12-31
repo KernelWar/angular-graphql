@@ -8,6 +8,7 @@ import { MaterialModule } from './material.module';
 import { LoginModule } from './pages/login/login.module';
 import { MainModule } from './pages/main/main.module';
 import { EmployeesModule } from './pages/employees/employees.module';
+import { GlobalModule } from './pages/components/global.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EmployeesModule } from './pages/employees/employees.module';
     MaterialModule,
     LoginModule,
     MainModule,
-    EmployeesModule
+    EmployeesModule,
+    GlobalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

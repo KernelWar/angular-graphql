@@ -6,14 +6,14 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'login'
+    redirectTo: '/login'
   },
   {
     path: 'login',
     component: LoginComponent
   },
   {
-    path: 'main',
+    path: 'home',
     loadChildren: () => import('./pages/main/main.module').then(m => m.MainModule)
   }
 ];

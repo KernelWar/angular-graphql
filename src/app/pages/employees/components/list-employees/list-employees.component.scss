@@ -1,0 +1,37 @@
+table {
+    width: 100%;
+}
+.container-table{
+    margin: 20px;    
+}
+.container-body{
+    max-width: 100%;
+    overflow: auto;
+}
+
+td.mat-column-star {
+    width: 20px;
+    padding-right: 8px;
+}
+
+th.mat-column-position,
+td.mat-column-position {
+    padding-left: 8px;
+}
+
+.mat-table-sticky-border-elem-right {
+    border-left: 1px solid #e0e0e0;
+}
+
+.mat-table-sticky-border-elem-left {
+    border-right: 1px solid #e0e0e0;
+}
+
+td,th{
+    white-space: nowrap !important;
+    text-align: center !important;
+}
+td{
+    padding-left: 10px;
+    padding-right: 10px;
+}

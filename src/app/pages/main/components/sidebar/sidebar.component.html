@@ -1,1 +1,11 @@
-<p>sidebar works!</p>
+<mat-selection-list [multiple]="false">
+    <mat-list-option routerLink="/employees">
+        <mat-icon mat-list-icon>people</mat-icon>
+        <div mat-line>Empleados</div>
+    </mat-list-option>
+    <mat-divider></mat-divider>
+    <mat-list-option routerLink="/welcome">
+        <mat-icon mat-list-icon>people</mat-icon>
+        <div mat-line>Welcome</div>
+    </mat-list-option>
+</mat-selection-list>

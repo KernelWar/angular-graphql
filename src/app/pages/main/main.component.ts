@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-main',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-
+  @ViewChild(MatDrawer) matDrawer: MatDrawer;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  drawerToogle(event){
+    this.matDrawer.toggle()
   }
 
 }
