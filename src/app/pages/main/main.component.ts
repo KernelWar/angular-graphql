@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { MediaMatcher } from '@angular/cdk/layout';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({
@@ -8,9 +9,16 @@ import { MatDrawer } from '@angular/material/sidenav';
 })
 export class MainComponent implements OnInit {
   @ViewChild(MatDrawer) matDrawer: MatDrawer;
-  constructor() { }
+  public mobileQuery: MediaQueryList;
+  private _mobileQueryListener: () => void;
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+  }
 
   ngOnInit(): void {
+    
   }
 
   drawerToogle(event){

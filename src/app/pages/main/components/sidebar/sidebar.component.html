@@ -1,11 +1,11 @@
 <mat-selection-list [multiple]="false">
-    <mat-list-option routerLink="/employees">
+    <mat-list-option routerLink="/employees" value="employees" [selected]="selectEmployees">
         <mat-icon mat-list-icon>people</mat-icon>
         <div mat-line>Empleados</div>
     </mat-list-option>
     <mat-divider></mat-divider>
-    <mat-list-option routerLink="/welcome">
-        <mat-icon mat-list-icon>people</mat-icon>
+    <mat-list-option routerLink="/welcome" value="welcome" [selected]="selectWelcome">
+        <mat-icon mat-list-icon>auto_awesome</mat-icon>
         <div mat-line>Welcome</div>
     </mat-list-option>
 </mat-selection-list>

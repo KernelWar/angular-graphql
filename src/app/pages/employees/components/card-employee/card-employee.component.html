@@ -1,1 +1,35 @@
-<p>card-employee works!</p>
+<h2 mat-dialog-title>{{ employee.id_employee }}</h2>
+<mat-list>
+    <mat-list-item >
+        <mat-icon mat-list-icon>face</mat-icon>
+        <div id="name" mat-line [matTooltip]="employee.name">{{ employee.name }}</div>
+        <div mat-line [matTooltip]="employee.last_name+' / '+employee.civil_status"> {{ employee.last_name }} / {{ employee.civil_status }}</div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <div class="row">
+        <div class="col-md-6">
+            <mat-list-item>
+                <mat-icon mat-list-icon>today</mat-icon>
+                <div mat-line class="min-width-field" [matTooltip]="employee.birthday">{{ employee.birthday }}</div>
+                <div mat-line> birthday</div>
+            </mat-list-item>
+        </div>
+        <div class="col-md-6">                        
+            <mat-list-item>
+                <mat-icon mat-list-icon>flag</mat-icon>
+                <div mat-line class="min-width-field" [matTooltip]="employee.nationality">{{ employee.nationality }}</div>
+                <div mat-line> nationality</div>
+            </mat-list-item>
+        </div>
+    </div>
+    <mat-list-item>
+        <mat-icon mat-list-icon>email</mat-icon>
+        <div mat-line class="min-width-field" [matTooltip]="employee.email">{{ employee.email }}</div>
+        <div mat-line> email</div>
+    </mat-list-item>
+    <mat-list-item>
+        <mat-icon mat-list-icon>phone</mat-icon>
+        <div mat-line class="min-width-field"  [matTooltip]="employee.phone">{{ employee.phone }}</div>
+        <div mat-line> phone</div>
+    </mat-list-item>
+</mat-list>

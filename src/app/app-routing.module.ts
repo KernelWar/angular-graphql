@@ -13,7 +13,7 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'home',
+    path: 'main',
     loadChildren: () => import('./pages/main/main.module').then(m => m.MainModule)
   }
 ];

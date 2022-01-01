@@ -1,1 +1,30 @@
-<p>update-employee works!</p>
+<h2 mat-dialog-title>Update employee</h2>
+<form [formGroup]="formEmployee">
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="max-width" appearance="fill">
+                <mat-label>Name</mat-label>
+                <input formControlName="name" matInput placeholder="Placeholder">
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="max-width" appearance="fill">
+                <mat-label>Last name</mat-label>
+                <input formControlName="last_name" matInput placeholder="Placeholder">
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="max-width" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input formControlName="email" matInput placeholder="Placeholder">
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="max-width" appearance="fill">
+                <mat-label>Phone</mat-label>
+                <input formControlName="phone" matInput placeholder="Placeholder">
+            </mat-form-field>
+        </div>
+        <div class="col-md-12 text-end"> <button mat-raised-button color="primary">Update</button></div>
+    </div>
+</form>

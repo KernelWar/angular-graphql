@@ -4,6 +4,7 @@ import { ListEmployeesComponent } from './components/list-employees/list-employe
 import { MaterialModule } from 'src/app/material.module';
 import { CardEmployeeComponent } from './components/card-employee/card-employee.component';
 import { UpdateEmployeeComponent } from './components/update-employee/update-employee.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -15,7 +16,9 @@ import { UpdateEmployeeComponent } from './components/update-employee/update-emp
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class EmployeesModule { }

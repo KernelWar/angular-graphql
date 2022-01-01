@@ -11,7 +11,7 @@ table {
 
 td.mat-column-star {
     width: 20px;
-    padding-right: 8px;
+    padding-right: 8px;    
 }
 
 th.mat-column-position,
@@ -34,4 +34,17 @@ td,th{
 td{
     padding-left: 10px;
     padding-right: 10px;
+}
+
+.table-row:hover{
+    background: #ede9ff;
+}
+.table-row:active{
+    background: #fff;
+}
+.selected-fake{
+    background: #fff;
+}
+.col-stick{
+    padding-right: 5px;
 }

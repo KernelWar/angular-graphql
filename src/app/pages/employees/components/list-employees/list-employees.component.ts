@@ -1,8 +1,11 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Employee } from 'src/app/pages/models/Employes';
+import { CardEmployeeComponent } from '../card-employee/card-employee.component';
+import { UpdateEmployeeComponent } from '../update-employee/update-employee.component';
 
 @Component({
   selector: 'app-list-employees',
@@ -17,7 +20,7 @@ export class ListEmployeesComponent implements OnInit, AfterViewInit {
 
   employees: Employee [] = [{
     id_employee: 1,
-    name: "Sayers Townshend",
+    name: "Sayers",
     last_name: "Townshend",
     email: "stownshend0@privacy.gov.au",
     nationality: "Russia",
@@ -26,7 +29,7 @@ export class ListEmployeesComponent implements OnInit, AfterViewInit {
     birthday: "11/15/2021"
   }, {
     id_employee: 2,
-    name: "Tori Kenney",
+    name: "Tori",
     last_name: "Kenney",
     email: "tkenney1@auda.org.au",
     nationality: "Brazil",
@@ -35,7 +38,7 @@ export class ListEmployeesComponent implements OnInit, AfterViewInit {
     birthday: "8/12/2021"
   }, {
     id_employee: 3,
-    name: "Ilsa Bengochea",
+    name: "Ilsa",
     last_name: "Bengochea",
     email: "ibengochea2@google.it",
     nationality: "Japan",
@@ -44,7 +47,7 @@ export class ListEmployeesComponent implements OnInit, AfterViewInit {
     birthday: "6/8/2021"
   }, {
     id_employee: 4,
-    name: "Lexis Pringle",
+    name: "Lexis",
     last_name: "Pringle",
     email: "lpringle3@github.com",
     nationality: "Indonesia",
@@ -53,7 +56,7 @@ export class ListEmployeesComponent implements OnInit, AfterViewInit {
     birthday: "11/28/2021"
   }, {
     id_employee: 5,
-    name: "Hy Simioli",
+    name: "Hy",
     last_name: "Simioli",
     email: "hsimioli4@issuu.com",
     nationality: "Czech Republic",
@@ -62,7 +65,7 @@ export class ListEmployeesComponent implements OnInit, AfterViewInit {
     birthday: "6/20/2021"
   }, {
     id_employee: 6,
-    name: "Coretta Alvaro",
+    name: "Coretta",
     last_name: "Alvaro",
     email: "calvaro5@nhs.uk",
     nationality: "Haiti",
@@ -71,7 +74,7 @@ export class ListEmployeesComponent implements OnInit, AfterViewInit {
     birthday: "1/27/2021"
   }, {
     id_employee: 7,
-    name: "Desmund Llopis",
+    name: "Desmund",
     last_name: "Llopis",
     email: "dllopis6@xing.com",
     nationality: "China",
@@ -80,7 +83,7 @@ export class ListEmployeesComponent implements OnInit, AfterViewInit {
     birthday: "4/28/2021"
   }, {
     id_employee: 8,
-    name: "Stacie Espley",
+    name: "Stacie",
     last_name: "Espley",
     email: "sespley7@huffingtonpost.com",
     nationality: "China",
@@ -89,7 +92,7 @@ export class ListEmployeesComponent implements OnInit, AfterViewInit {
     birthday: "8/1/2021"
   }, {
     id_employee: 9,
-    name: "Debra Bertenshaw",
+    name: "Debra",
     last_name: "Bertenshaw",
     email: "dbertenshaw8@indiatimes.com",
     nationality: "Colombia",
@@ -98,7 +101,7 @@ export class ListEmployeesComponent implements OnInit, AfterViewInit {
     birthday: "3/10/2021"
   }, {
     id_employee: 10,
-    name: "Karlyn Fass",
+    name: "Karlyn",
     last_name: "Fass",
     email: "kfass9@businessweek.com",
     nationality: "Greece",
@@ -107,7 +110,9 @@ export class ListEmployeesComponent implements OnInit, AfterViewInit {
     birthday: "12/15/2021"
   }]
 
-  constructor() {
+  constructor(
+    private dialog: MatDialog
+  ) {
     this.dataSource = new MatTableDataSource(this.employees);
   }
 
@@ -118,5 +123,21 @@ export class ListEmployeesComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
+  showRow(row: Employee){
+    const dialogRef = this.dialog.open(CardEmployeeComponent);
+    dialogRef.componentInstance.employee = row
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 
+  @HostListener("click", ["$event"])
+  clickFake(event){
+    event.stopPropagation()
+  }
+
+  goToEdit(row: Employee){
+    const dialogRef = this.dialog.open(UpdateEmployeeComponent);
+    dialogRef.componentInstance.employee = row
+  }
 }

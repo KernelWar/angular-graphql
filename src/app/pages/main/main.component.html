@@ -1,7 +1,7 @@
 <div class="main">
     <app-header (toogleEvent)="drawerToogle($event)"></app-header>    
     <mat-drawer-container>
-        <mat-drawer #drawer mode="side" opened class="side-nav">
+        <mat-drawer #drawer [mode]="mobileQuery.matches ? 'over' : 'side'" opened class="side-nav">
             <app-sidebar></app-sidebar>
         </mat-drawer>
         <mat-drawer-content>
