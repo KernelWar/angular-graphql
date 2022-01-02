@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from 'src/app/guards/auth.guard';
 import { NotFoundComponent } from '../components/not-found/not-found.component';
 import { ListEmployeesComponent } from '../employees/components/list-employees/list-employees.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
@@ -8,7 +9,8 @@ import { MainComponent } from './main.component';
 const routes: Routes = [
   {
     path: '',
-    component: MainComponent,
+    component: MainComponent,    
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
@@ -32,14 +34,14 @@ const routes: Routes = [
       {
         path: 'welcome',
         component: WelcomeComponent,
-      },
-      {
-        path: '**',
-        component: NotFoundComponent
-      }
-    ]
-    
-  }
+      }      
+    ]    
+  },
+  {
+    path: 'page-not-found',
+    component: NotFoundComponent
+  },
+  {path: '**', redirectTo: '/page-not-found'}
   
 ];  
 

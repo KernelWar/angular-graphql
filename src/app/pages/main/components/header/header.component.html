@@ -6,14 +6,14 @@
         Angular app
     </button>
     <span class="spacer"></span>    
-    <button mat-icon-button style="margin-right: 40px;" [matMenuTriggerFor]="menu">
-        nombre
+    <button mat-button [matMenuTriggerFor]="menu">
+        {{ loginService.userLogIn.full_name }}
         <mat-icon>person</mat-icon>
     </button>    
 </mat-toolbar>
 
 <mat-menu #menu="matMenu">
-    <button mat-menu-item>
+    <button mat-menu-item (click)="loginService.logout()">
         <mat-icon>logout</mat-icon>
         LogOut
     </button>

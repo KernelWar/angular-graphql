@@ -13,6 +13,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatRippleModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 @NgModule({
   declarations: [],
   imports: [
@@ -30,6 +32,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatRippleModule,
     MatDialogModule,
     MatTooltipModule,
+    MatSnackBarModule,
+    MatProgressBarModule,
   ],
   exports: [
     MatButtonModule,
@@ -46,6 +50,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatRippleModule,
     MatDialogModule,
     MatTooltipModule,
+    MatSnackBarModule,
+    MatProgressBarModule
   ]
 })
 export class MaterialModule { }

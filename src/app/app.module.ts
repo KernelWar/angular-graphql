@@ -9,6 +9,7 @@ import { LoginModule } from './pages/login/login.module';
 import { MainModule } from './pages/main/main.module';
 import { EmployeesModule } from './pages/employees/employees.module';
 import { GlobalModule } from './pages/components/global.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { GlobalModule } from './pages/components/global.module';
     LoginModule,
     MainModule,
     EmployeesModule,
-    GlobalModule
+    GlobalModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

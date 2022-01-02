@@ -15,30 +15,32 @@
                                 </div>
                             </div>
                         </div>
-                        <form>
+                        <form [formGroup]="formLogin">
                             <div class="row">
                                 <div id="text-welcome" class="col-12">
                                     <h2>Welcome</h2>
                                 </div>
                                 <div class="col-12">
                                     <mat-form-field class="max-width" appearance="fill">
-                                        <mat-label>Email</mat-label>
-                                        <input matInput type="email">
-                                        <mat-icon matSuffix>email</mat-icon>
+                                        <mat-label>Username</mat-label>
+                                        <input formControlName="username" matInput type="text">
+                                        <mat-icon matSuffix>account_circle</mat-icon>
                                     </mat-form-field>
                                 </div>
                                 <div class="col-12">
                                     <mat-form-field class="max-width" appearance="fill">
                                         <mat-label>Password</mat-label>
-                                        <input matInput [type]="hide ? 'password' : 'text'">
-                                        <button mat-icon-button matSuffix (click)="hide = !hide"
+                                        <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
+                                        <button mat-icon-button matSuffix (click)="hide = !hide" [disabled]  type="button"
                                             [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                                             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                                         </button>
                                     </mat-form-field>
                                 </div>
                                 <div class="col-12">
-                                    <button class="max-width" mat-raised-button color="primary">Login</button>
+                                    <button [disabled]="formLogin.invalid" class="max-width" mat-raised-button color="primary" (click)="login()">Login</button>
+                                    <br><br>
+                                    <mat-progress-bar *ngIf="LOAD" color="accent" class="max-width" mode="indeterminate"></mat-progress-bar>
                                 </div>
                             </div>
                         </form>
