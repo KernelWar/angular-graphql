@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Employee } from 'src/app/pages/models/Employes';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-card-employee',
@@ -11,6 +12,10 @@ export class CardEmployeeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  getFormatDate(birthday){    
+    return moment(birthday).format("D MMMM")
   }
 
 }

@@ -3,74 +3,88 @@
   <div class="col-8 col-md-6">
     <mat-form-field appearance="outline" class="max-width">
       <mat-label>Search</mat-label>
-      <input matInput placeholder="keywords">
+      <input [formControl]="search" matInput placeholder="keywords">
       <mat-icon matSuffix>search</mat-icon>
-      <mat-hint>10 resultados</mat-hint>
+      <mat-hint>{{ length }} resultados</mat-hint>
     </mat-form-field>
   </div>
 </div>
 <div class="mat-elevation-z8 container-table">
-    <div class="container-body">
-        <table mat-table [dataSource]="dataSource" matSort>
-  
-      
-            <ng-container matColumnDef="id_employee" sticky>
-              <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-center"> ID </th>
-              <td mat-cell *matCellDef="let row" class="col-stick"> {{row.id_employee}} </td>
-            </ng-container>
-        
-            
-            <ng-container matColumnDef="name" >
-              <th mat-header-cell *matHeaderCellDef mat-sort-header> NAME </th>
-              <td mat-cell *matCellDef="let row"> {{row.name}} </td>
-            </ng-container>
-        
-            
-            <ng-container matColumnDef="last_name">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header> LAST NAME </th>
-              <td mat-cell *matCellDef="let row"> {{row.last_name}} </td>
-            </ng-container>
-        
-            
-            <ng-container matColumnDef="email">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </th>
-              <td mat-cell *matCellDef="let row"> {{row.email}} </td>
-            </ng-container>
-      
-            <ng-container matColumnDef="nationality">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header> NATIONALITY </th>
-              <td mat-cell *matCellDef="let row"> {{row.nationality}} </td>
-            </ng-container>
-      
-            <ng-container matColumnDef="phone">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header> PHONE </th>
-              <td mat-cell *matCellDef="let row"> {{row.phone}} </td>
-            </ng-container>
-      
-            <ng-container matColumnDef="civil_status">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header> CIVIL STATUS </th>
-              <td mat-cell *matCellDef="let row"> {{row.civil_status}} </td>
-            </ng-container>
-      
-            <ng-container matColumnDef="birthday">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header> BIRTHDAY </th>
-              <td mat-cell *matCellDef="let row"> {{row.birthday}} </td>
-            </ng-container>
-      
-            <ng-container matColumnDef="accion" stickyEnd>
-              <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-center"> ACCION </th>
-              <td mat-cell *matCellDef="let row" class="selected-fake text-center" (click)="clickFake($event)"> 
-                <button mat-icon-button color="basic" (click)="goToEdit(row)">
-                  <mat-icon>edit</mat-icon>
-                </button>
-              </td>
-            </ng-container>
-        
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr class="table-row" mat-row *matRowDef="let row; columns: displayedColumns;" (click)="showRow(row)"></tr>
-            
-          </table>
+  <div class="container-body">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <ng-container matColumnDef="id_employee" sticky>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-center"> ID </th>
+        <td mat-cell *matCellDef="let row" class="col-stick"> <span
+            (click)="clickFake($event)">{{row.id_employee}}</span> </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> NAME </th>
+        <td mat-cell *matCellDef="let row"> <span (click)="clickFake($event)">{{row.name}}</span> </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="last_name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> LAST NAME </th>
+        <td mat-cell *matCellDef="let row"> <span (click)="clickFake($event)">{{row.last_name}}</span> </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </th>
+        <td mat-cell *matCellDef="let row"> <span (click)="clickFake($event)">{{row.email}}</span> </td>
+      </ng-container>
+
+      <ng-container matColumnDef="nationality">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> NATIONALITY </th>
+        <td mat-cell *matCellDef="let row"> <span (click)="clickFake($event)">{{row.nationality}}</span> </td>
+      </ng-container>
+
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> PHONE </th>
+        <td mat-cell *matCellDef="let row"> <span (click)="clickFake($event)">{{row.phone}}</span> </td>
+      </ng-container>
+
+      <ng-container matColumnDef="civil_status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> CIVIL STATUS </th>
+        <td mat-cell *matCellDef="let row"> <span (click)="clickFake($event)">{{row.civil_status}}</span> </td>
+      </ng-container>
+
+      <ng-container matColumnDef="birthday">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> BIRTHDAY </th>
+        <td mat-cell *matCellDef="let row"> <span (click)="clickFake($event)">{{ getFormatDate(row.birthday)}}</span>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="accion" stickyEnd>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-center">
+          ACCION
+          <button mat-icon-button
+            matTooltip="Si hace click fuera del área sombreada vera el detalle del registro, seleccione y copie dentro del area sombreada"
+            (mouseenter)="activateColor()" (mouseleave)="deactivateColor()">
+            <mat-icon>help</mat-icon>
+          </button>
+        </th>
+        <td mat-cell *matCellDef="let row" class="selected-fake text-center" (click)="clickFake($event)">
+          <button mat-icon-button (click)="goToEdit(row)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="showRow(row)">
+            <mat-icon>visibility</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr class="table-row" [ngClass]="{'help': showHelp}" mat-row *matRowDef="let row; columns: displayedColumns;"
+        (click)="showRow(row)"></tr>
+
+    </table>
+    <div id="not-results" *ngIf="length === 0">
+      <p>No results found</p>
     </div>
-  
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
   </div>
+  <mat-paginator showFirstLastButtons [pageSizeOptions]="[5, 10, 25, 100]" (page)="changePage($event)"></mat-paginator>
+</div>

@@ -10,7 +10,7 @@
         <div class="col-md-6">
             <mat-list-item>
                 <mat-icon mat-list-icon>today</mat-icon>
-                <div mat-line class="min-width-field" [matTooltip]="employee.birthday">{{ employee.birthday }}</div>
+                <div mat-line class="min-width-field" [matTooltip]="getFormatDate(employee.birthday)">{{ getFormatDate(employee.birthday) }}</div>
                 <div mat-line> birthday</div>
             </mat-list-item>
         </div>

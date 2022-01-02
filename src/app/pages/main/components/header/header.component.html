@@ -2,13 +2,14 @@
     <button mat-icon-button (click)="toggleActive()">
         <mat-icon>menu</mat-icon>
     </button>
-    <button mat-button  routerLink="/main">
-        Angular app
-    </button>
-    <span class="spacer"></span>    
-    <button mat-button [matMenuTriggerFor]="menu">
+    <button mat-button [matMenuTriggerFor]="menu">        
+        <mat-icon>account_circle</mat-icon>
         {{ loginService.userLogIn.full_name }}
-        <mat-icon>person</mat-icon>
+    </button>    
+    <span class="spacer"></span>        
+    <button mat-button  routerLink="/main">        
+        <img src="https://beliveo.com/wp-content/uploads/2019/11/logo-beliveo-80-01.png" alt="logo beliveo" width="40">
+        Home        
     </button>    
 </mat-toolbar>
 

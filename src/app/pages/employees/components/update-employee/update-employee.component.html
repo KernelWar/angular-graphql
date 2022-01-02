@@ -25,6 +25,10 @@
                 <input formControlName="phone" matInput placeholder="Placeholder">
             </mat-form-field>
         </div>
-        <div class="col-md-12 text-end"> <button mat-raised-button color="primary">Update</button></div>
+        <div class="col-md-12">
+            <mat-progress-bar *ngIf="LOAD" color="accent" class="max-width" mode="indeterminate"></mat-progress-bar>
+            <br>
+        </div>
+        <div class="col-md-12 text-end"> <button mat-raised-button color="primary" [disabled]="formEmployee.invalid" (click)="updateEmployee()">Update</button></div>
     </div>
 </form>
