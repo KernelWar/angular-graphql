@@ -45,7 +45,7 @@ export class GraphqlService {
         search
       }
     }
-    return this.http.post<Graphql>(this.getPath(), query, this.options)
+    return this.http.post<Graphql>(this.getPath()+"/graphql", query, this.options)
   }
 
   updateEmployee(id_employee: number, employeeUpdate: EmployeeUpdate): Observable<Graphql>{
@@ -69,7 +69,7 @@ export class GraphqlService {
         employee: employeeUpdate
       }
     }
-    return this.http.post<Graphql>(this.getPath(), query, this.options)
+    return this.http.post<Graphql>(this.getPath()+"/graphql", query, this.options)
   }
 
   private getPath(){
