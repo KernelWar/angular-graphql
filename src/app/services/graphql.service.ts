@@ -72,7 +72,12 @@ export class GraphqlService {
     return this.http.post<Graphql>(this.getPath(), query, this.options)
   }
 
-  private getPath() {
-    return `http://${environment.host}:${environment.port}/graphql`
+  private getPath(){
+    if(environment.production){
+      return `${environment.host}/`
+    }else{
+      return `${environment.host}:${environment.port}/`
+    }    
   }
+
 }

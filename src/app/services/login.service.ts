@@ -26,7 +26,11 @@ export class LoginService {
   }
 
   private getPath(){
-    return `http://${environment.host}:${environment.port}/`
+    if(environment.production){
+      return `${environment.host}/`
+    }else{
+      return `${environment.host}:${environment.port}/`
+    }    
   }
 
   login(username: string, password: string): Observable<Response>{
@@ -41,6 +45,9 @@ export class LoginService {
           duration: 3500
         })
       }
+    }), catchError(err => {
+      this.toast.open("Server fail: "+ err.message)
+      return throwError(err)
     }))
   }
 

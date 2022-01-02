@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  host: 'localhost',
-  port: '4000'
+  host: 'https://graphqldbtest.herokuapp.com',
+  port: '8080'
 };
