@@ -5,7 +5,7 @@ Proyecto cliente angular que se conecta a una GraphQL API, contiene un módulo d
 Consulta el repositorio de la API aquí [GraphQL API](https://github.com/KernelWar/server-graphql "GraphQL API")
 
 ### Configuración
-En la ruta `src/environments` continent las variables de entorno, en el archivo `environment.ts` configure `host` y `port` por default se mira así:
+En la ruta `src/environments` contiene las variables de entorno, en el archivo `environment.ts` configure `host` y `port` por default se mira así:
 ```javascript
 export const environment = {
   production: false,
