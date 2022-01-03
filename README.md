@@ -1,27 +1,22 @@
-# AngularGraphql
+# Angular Graphql
+Proyecto cliente angular que se conecta a una GraphQL API, contiene un módulo de login y empleados.
+Consulta el repositorio de la API aquí [GraphQL API](https://github.com/KernelWar/server-graphql "GraphQL API")
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.9.
+###Configuración
+En la ruta `src/environments` continent las variables de entorno, en el archivo `environment.ts` configure `host` y `port` por default se mira así:
+```javascript
+export const environment = {
+  production: false,
+  host: 'http://localhost',
+  port: '4000'
+};
 
-## Development server
+```
+####Como empezar
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Desde su terminal preferida estando en la raiz del proyecto ejecute `npm install`
+- Si todo va bien, ejecute `ng serve --open` para abrir el proyecto en un navegador
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+###Generar empaquetado
+- Desde su terminal preferida estando en la raiz del proyecto ejecute `ng build`, comando que gerará un carpeta llamada `dist` que contendra el empaquetado listo para producción.
+- En este caso este empaquetado se añadio al proyecto de la API para poder  tener en un mismo entorno el frondend y backend, ambos proyectos se pueden ver en producción [aquí](https://graphqldbtest.herokuapp.com "aquí")
