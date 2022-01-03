@@ -53,7 +53,7 @@ export class ListEmployeesComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    this.getEmployees()
+    Promise.resolve(null).then(()=>this.getEmployees())
     this.search.valueChanges.pipe(debounceTime(3000)).subscribe(res => {
       if (res != '') {
         this.getEmployees()
