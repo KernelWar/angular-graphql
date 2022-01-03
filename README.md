@@ -14,7 +14,7 @@ export const environment = {
 };
 
 ```
-#### Como empezar
+### Como empezar
 
 - Desde su terminal preferida estando en la raiz del proyecto ejecute `npm install`
 - Si todo va bien, ejecute `ng serve --open` para abrir el proyecto en un navegador
