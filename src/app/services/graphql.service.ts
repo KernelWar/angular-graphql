@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { retry } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { EmployeeUpdate, Graphql } from '../pages/models/Employes';
 
@@ -45,7 +46,7 @@ export class GraphqlService {
         search
       }
     }
-    return this.http.post<Graphql>(this.getPath()+"graphql", query, this.options)
+    return this.http.post<Graphql>(this.getPath()+"graphql", query, this.options).pipe(retry(3))
   }
 
   updateEmployee(id_employee: number, employeeUpdate: EmployeeUpdate): Observable<Graphql>{

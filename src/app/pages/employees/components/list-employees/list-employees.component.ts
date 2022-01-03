@@ -25,75 +25,80 @@ export class ListEmployeesComponent implements OnInit, AfterViewInit {
   public search: FormControl = new FormControl('')
   public length: number = 0
   public showHelp: boolean = false
+  public LOAD: boolean = false
   constructor(
     private dialog: MatDialog,
     private graphqlService: GraphqlService
-  ) {    
+  ) {
   }
 
-  ngOnInit(): void {   
-    
+  ngOnInit(): void {
+
   }
 
-  getEmployees(){
-    this.graphqlService.getEmployees(this.paginator.pageIndex+1, this.paginator.pageSize, this.search.value).subscribe(res=> {
-      if(res.data.getEmployeeByKeyword != []){
+  getEmployees() {
+    this.LOAD = true
+    this.graphqlService.getEmployees(this.paginator.pageIndex + 1, this.paginator.pageSize, this.search.value).subscribe(res => {
+      this.LOAD = false
+      if (res.data.getEmployeeByKeyword != []) {
         this.dataSource = new MatTableDataSource(res.data.getEmployeeByKeyword);
-        this.paginator.length = res.data.getCountEmployeeByKeyword[0].length        
-        this.length = res.data.getCountEmployeeByKeyword[0].length        
+        this.paginator.length = res.data.getCountEmployeeByKeyword[0].length
+        this.length = res.data.getCountEmployeeByKeyword[0].length
       }
+    }, err => {
+      this.LOAD = false
     })
   }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;    
+    this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.getEmployees()
-    this.search.valueChanges.pipe(debounceTime(3000)).subscribe(res=> {
-      if(res != ''){
+    this.search.valueChanges.pipe(debounceTime(3000)).subscribe(res => {
+      if (res != '') {
         this.getEmployees()
-        this.paginator.firstPage()                
+        this.paginator.firstPage()
       }
     })
-    this.search.valueChanges.subscribe(res=> {
-      if(res == ''){
+    this.search.valueChanges.subscribe(res => {
+      if (res == '') {
         this.getEmployees()
         this.paginator.firstPage()
       }
     })
   }
 
-  changePage(event: PageEvent){
+  changePage(event: PageEvent) {
     this.getEmployees()
   }
 
-  showRow(row: Employee){
+  showRow(row: Employee) {
     const dialogRef = this.dialog.open(CardEmployeeComponent);
-    dialogRef.componentInstance.employee = row    
+    dialogRef.componentInstance.employee = row
   }
 
   @HostListener("click", ["$event"])
-  clickFake(event){
+  clickFake(event) {
     event.stopPropagation()
   }
 
-  goToEdit(row: Employee){
+  goToEdit(row: Employee) {
     const dialogRef = this.dialog.open(UpdateEmployeeComponent);
     dialogRef.componentInstance.employee = row
     dialogRef.afterClosed().subscribe(result => {
-      if(result && result['update']){
+      if (result && result['update']) {
         this.getEmployees()
       }
     });
   }
 
-  getFormatDate(birthday){    
+  getFormatDate(birthday) {
     return moment(birthday).format("D MMMM")
   }
-  activateColor(){
+  activateColor() {
     this.showHelp = true
   }
-  deactivateColor(){
+  deactivateColor() {
     this.showHelp = false
   }
 }
