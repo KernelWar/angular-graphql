@@ -19,6 +19,6 @@ export const environment = {
 - Desde su terminal preferida estando en la raiz del proyecto ejecute `npm install`
 - Si todo va bien, ejecute `ng serve --open` para abrir el proyecto en un navegador
 
-###Generar empaquetado
+### Generar empaquetado
 - Desde su terminal preferida estando en la raiz del proyecto ejecute `ng build`, comando que gerará un carpeta llamada `dist` que contendra el empaquetado listo para producción.
 - En este caso este empaquetado se añadio al proyecto de la API para poder  tener en un mismo entorno el frondend y backend, ambos proyectos se pueden ver en producción [aquí](https://graphqldbtest.herokuapp.com "aquí")
