@@ -22,7 +22,7 @@ export class AuthGuard implements CanActivate {
         return resolve(false)
       }, err => {
         console.log(err.message)
-        this.toast.open("Server fail: "+ err.message)
+        //this.toast.open("Server fail: "+ err.message, 'OK')
         return resolve(false)
       })
     })
